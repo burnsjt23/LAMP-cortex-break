@@ -35,6 +35,17 @@ find tests -name '*tests.py' -print0 |
             coverage run -m unittest "$line"
             echo "${cyan} Coverage Report for ${line}"
             coverage report -m cortex/utils/misc_functions.py
+        elif [[ $line = "tests/neocortex_tests.py" ]]
+        then
+            echo "${green} Running tests for ${line} ${reset}"
+            coverage run -m unittest "$line"
+            echo "${cyan} Coverage Report for ${line}"
+            coverage report -m Neocortex/raw/steps.py
+            coverage report -m Neocortex/primary/screen_active.py
+            coverage report -m Neocortex/primary/significant_locations.py
+            coverage report -m Neocortex/secondary/step_count.py
+            coverage report -m Neocortex/secondary/hometime.py
+            coverage report -m Neocortex/secondary/entropy.py
         else
             echo "TODO: add other tests here"
             # coverage report
